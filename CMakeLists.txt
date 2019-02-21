@@ -14,3 +14,5 @@ list(APPEND PATCHED_DIRS src )
 add_dependencies( webrtc_patch_end 
   Apply_customer1
   )
+
+message( STATUS " This is okay patches")
