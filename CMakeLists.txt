@@ -1,18 +1,4 @@
-# Copyright 2015, 2016, 2017, 2018 Dr Alex Gouaillard <agouaillard@gmail.com>
+add_custom_target( PvtPatches ALL )
 
-set_webrtc_patch_target(
-  "${GIT_APPLY_CMD} --check"
-  src
-  customer1.patch
-  customer1
-  webrtc_synchronization
-  )
-list(APPEND PATCHED_DIRS src )
-
-# always close the dependency chain to make sure that all patches
-# have been applied before you generate the ninja files and build
-add_dependencies( webrtc_patch_end 
-  Apply_customer1
-  )
-
-message( STATUS " This is okay patches")
+get_property(fancy_lib_location TARGET PvtPatches PROPERTY LOCATION)
+message (STATUS "fancy_lib_location == ${fancy_lib_location}")
