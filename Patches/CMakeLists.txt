@@ -4,8 +4,8 @@
 set_webrtc_patch_target(
   "${GIT_APPLY_CMD}"
   src
-  no_llvm_thin_lib.patch
-  no_llvm_thin_lib
+  MYFILE.patch
+  MYFILE
   webrtc_synchronization
   )
 list(APPEND PATCHED_DIRS src )
@@ -13,5 +13,5 @@ list(APPEND PATCHED_DIRS src )
 # always close the dependency chain to make sure that all patches
 # have been applied before you generate the ninja files and build
 add_dependencies( webrtc_patch_end 
-  Apply_no_llvm_thin_lib
+  Apply_MYFILE
   )
