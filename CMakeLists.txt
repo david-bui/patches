@@ -17,7 +17,8 @@ this target should be built as soon as possible to have access to needed informa
 add_custom_target( dummy_webrtc_pvtpatches_target ALL
   )
 
+set_target_properties( dummy_webrtc_pvtpatches_target PROPERTIES IMPORTED_GLOBAL TRUE )
 # Build before compiling sources
-add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_BUILD 
+add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_LINK
   COMMENT "Fake target for Private Patches"
   )
