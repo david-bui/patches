@@ -10,7 +10,7 @@
 #   COMMENT "Fake target for Private Patches"
 #   )
 
-add_custom_target( dummy_webrtc_pvtpatches_target 
+add_custom_target( dummy_webrtc_pvtpatches_target ALL
   )
 
 add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_BUILD 
