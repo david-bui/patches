@@ -8,15 +8,9 @@ not in this current CMakeLists.txt
 - First patch must have a dependency on "webrtc_synchronization"
 - "webrtc_patch_end" must have a dependency on the last patch
 
-Anchor target "dummy_webrtc_pvtpatches_target": necessary to have the location of the private patches (target property)
-and patches ordering. This target will be added via include() so its scope should be global.
+Anchor target "webrtc_pvtpatches": necessary to have the location of the private patches (target property)
+and patches ordering. This file should be added to the build system to make the target available.
+Then use include() to the main CMakeLists in the Patches folder.
 ]]
 
-# dummy_webrtc_pvtpatches_target will be always built
-add_custom_target( dummy_webrtc_pvtpatches_target ALL
-  )
-
-# # Build before compiling sources
-# add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_LINK
-#   COMMENT "Fake target for Private Patches"
-#   )
+add_custom_target( webrtc_pvtpatches ALL )
