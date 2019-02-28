@@ -1,6 +1,6 @@
 #[[ 
 Author : David Bui <david.bui@cosmosoftware.io>
-Usage : The folder Patches will be called by libwebrtc-cmake
+Usage : The folder Patches will be added by libwebrtc-cmake
 You can use macros and function from libwebrtc-cmake project in Patches folder,
 not in this current CMakeLists.txt
 
@@ -9,16 +9,14 @@ not in this current CMakeLists.txt
 - "webrtc_patch_end" must have a dependency on the last patch
 
 Anchor target "dummy_webrtc_pvtpatches_target": necessary to have the location of the private patches (target property)
-and patches ordering
-this target should be built as soon as possible to have access to needed information 
+and patches ordering. This target will be added via include() so its scope should be global.
 ]]
 
 # dummy_webrtc_pvtpatches_target will be always built
 add_custom_target( dummy_webrtc_pvtpatches_target ALL
   )
 
-set_target_properties( dummy_webrtc_pvtpatches_target PROPERTIES IMPORTED_GLOBAL TRUE )
-# Build before compiling sources
-add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_LINK
-  COMMENT "Fake target for Private Patches"
-  )
+# # Build before compiling sources
+# add_custom_command( TARGET dummy_webrtc_pvtpatches_target PRE_LINK
+#   COMMENT "Fake target for Private Patches"
+#   )
